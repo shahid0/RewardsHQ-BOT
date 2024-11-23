@@ -341,23 +341,6 @@ class RewardsHQ:
             return None
         
     def campaigns(self, token: str):
-        url = 'https://api-rewardshq.shards.tech/v1/campaigns'
-        self.headers.update({
-            'Authorization': f'Bearer {token}',
-            'Content-Type': 'application/json'
-        })
-
-        response = self.session.get(url, headers=self.headers)
-        result = response.json()
-        if response.status_code in [200, 201]:
-            if result and result['message'] == 'Success':
-                return result['data']
-            else:
-                return None
-        else:
-            return None
-        
-    def campaigns(self, token: str):
         url = 'https://api-rewardshq.shards.tech/v1/campaigns?page=1&limit=10&keyword='
         self.headers.update({
             'Authorization': f'Bearer {token}',
@@ -368,7 +351,7 @@ class RewardsHQ:
         result = response.json()
         if response.status_code in [200, 201]:
             if result and result['message'] == 'Success':
-                return result['data']['data']
+                return result['data']
             else:
                 return None
         else:
