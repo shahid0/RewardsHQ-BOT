@@ -825,33 +825,33 @@ class RewardsHQ:
             with open('query.txt', 'r') as file:
                 queries = [line.strip() for line in file if line.strip()]
 
-            while True:
-                self.clear_terminal()
-                self.welcome()
-                self.log(
-                    f"{Fore.GREEN + Style.BRIGHT}Account's Total: {Style.RESET_ALL}"
-                    f"{Fore.WHITE + Style.BRIGHT}{len(queries)}{Style.RESET_ALL}"
-                )
-                self.log(f"{Fore.CYAN + Style.BRIGHT}-{Style.RESET_ALL}"*75)
+            # while True:
+            self.clear_terminal()
+            self.welcome()
+            self.log(
+                f"{Fore.GREEN + Style.BRIGHT}Account's Total: {Style.RESET_ALL}"
+                f"{Fore.WHITE + Style.BRIGHT}{len(queries)}{Style.RESET_ALL}"
+            )
+            self.log(f"{Fore.CYAN + Style.BRIGHT}-{Style.RESET_ALL}"*75)
 
-                for query in queries:
-                    query = query.strip()
-                    if query:
-                        self.process_query(query)
-                        self.log(f"{Fore.CYAN + Style.BRIGHT}-{Style.RESET_ALL}"*75)
-                        time.sleep(3)
+            for query in queries:
+                query = query.strip()
+                if query:
+                    self.process_query(query)
+                    self.log(f"{Fore.CYAN + Style.BRIGHT}-{Style.RESET_ALL}"*75)
+                    time.sleep(3)
 
-                seconds = 1800
-                while seconds > 0:
-                    formatted_time = self.format_seconds(seconds)
-                    print(
-                        f"{Fore.CYAN+Style.BRIGHT}[ Wait for{Style.RESET_ALL}"
-                        f"{Fore.WHITE+Style.BRIGHT} {formatted_time} {Style.RESET_ALL}"
-                        f"{Fore.CYAN+Style.BRIGHT}... ]{Style.RESET_ALL}",
-                        end="\r"
-                    )
-                    time.sleep(1)
-                    seconds -= 1
+            # seconds = 1800
+            # while seconds > 0:
+                # formatted_time = self.format_seconds(seconds)
+                # print(
+                    # f"{Fore.CYAN+Style.BRIGHT}[ Wait for{Style.RESET_ALL}"
+                    # f"{Fore.WHITE+Style.BRIGHT} {formatted_time} {Style.RESET_ALL}"
+                    # f"{Fore.CYAN+Style.BRIGHT}... ]{Style.RESET_ALL}",
+                    # end="\r"
+                # )
+                # time.sleep(1)
+                # seconds -= 1
 
         except KeyboardInterrupt:
             self.log(f"{Fore.RED + Style.BRIGHT}[ EXIT ] RewardsHQ - BOT{Style.RESET_ALL}")
