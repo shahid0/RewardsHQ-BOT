@@ -1,0 +1,32 @@
+name: Run RewardsHQ Script
+
+on:
+  schedule:
+    - cron: "*/120 * * * *" # Runs every 120 minutes
+  workflow_dispatch: # Allows manual run of the workflow
+
+jobs:
+  run-RewardsHQ:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.x" # Use the desired Python version
+
+    - name: Install dependencies
+      run: |
+        python3 -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Create data.txt with secret value
+      env:
+        DATA_SECRET: ${{ secrets.DATA }}
+      run: echo "$DATA_SECRET" > query.txt
+
+    - name: Run RewardsHQ-git.py
+      run: python3 bot.py
