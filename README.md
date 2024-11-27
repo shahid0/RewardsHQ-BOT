@@ -1,7 +1,7 @@
 # RewardsHQ BOT
 RewardsHQ BOT
 
-Register Here : [RewardsHQ](https://t.me/RewardsHQ_bot/RewardsHQ?startapp=1493482017)
+Register Here : [RewardsHQ](https://t.me/RewardsHQ_bot/RewardsHQ?startapp=811989195)
 
 ## Fitur
 
