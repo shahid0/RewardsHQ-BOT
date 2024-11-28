@@ -2,7 +2,7 @@ name: Run RewardsHQ Script
 
 on:
   schedule:
-    - cron: "*/120 * * * *" # Runs every 120 minutes
+    - cron: "*/60 * * * *" # Runs every 120 minutes
   workflow_dispatch: # Allows manual run of the workflow
 
 jobs:
